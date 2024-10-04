@@ -80,7 +80,7 @@ function CreateOrder() {
         <div>
           {/* This is to pass data to the form in a dynamic way */}
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button disabled={isSubmitting}>
+          <button disabled={isSubmitting} className="bg-yellow-400 font-semibold text-stone-800 py-3 px-4 inline-block tracking-wide rounded-full uppercase hover:bg-yellow-300 transition-colors duration-300 focus:ring focus:ring-yellow-300 focus:ring-offset-2 focus:bg-yellow-300 focus:outline-none disabled:cursor-not-allowed">
             {isSubmitting ? "Placing order" : "Order now"}
           </button>
         </div>
