@@ -5,7 +5,21 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: "Roboto Mono, monospace"
+    },
+    // to add new colors, place them in the extend folder
+    extend: {
+      colors: {
+        pizza: "#123456",
+      },
+      fontSize: {
+        huge: ['80rem', {lineHeight: '1'}],
+      },
+      height: {
+        screen : '100dvh',
+      }
+    },
   },
   plugins: [],
 }

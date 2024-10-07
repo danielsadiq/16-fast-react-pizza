@@ -42,37 +42,38 @@ function CreateOrder() {
   const cart = fakeCart;
 
   return (
-    <div>
-      <h2>Ready to order? Let{`'`}s go!</h2>
+    <div className="px-4 py-6">
+      <h2 className="text-xl font-semibold mb-8">Ready to order? Let{`'`}s go!</h2>
 
       {/* <Form method="POST" action="/order/new"> */}
       <Form method="POST" >
-        <div>
-          <label>First Name</label>
+        <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center justify-between">
+          <label className="sm:basis-40">First Name</label>
           <input 
-            className="input" 
+            className="input grow" 
             type="text" 
             name="customer" 
             required />
         </div>
 
-        <div>
-          <label>Phone number</label>
-          <div>
+        <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center justify-between">
+          <label className="sm:basis-40">Phone number</label>
+          <div className="grow">
             <input 
-              className="input"
+              className="input w-full"
               type="tel" 
               name="phone" 
               required />
+          
+          {formErrors?.phone && <p className="text-xs mt-2 text-red-700 bg-red-100 p-2 rounded">{formErrors.phone}</p>}
           </div>
-          {formErrors?.phone && <p>{formErrors.phone}</p>}
         </div>
 
-        <div>
-          <label>Address</label>
-          <div>
+        <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center justify-between"> 
+          <label className="sm:basis-40">Address</label>
+          <div className="grow">
             <input
-              className="input"
+              className="input w-full"
               type="text" 
               name="address" 
 
@@ -80,7 +81,7 @@ function CreateOrder() {
           </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 mb-12">
           <input
             className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
             type="checkbox"
@@ -89,13 +90,13 @@ function CreateOrder() {
             // value={withPriority}
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">Want to yo give your order priority?</label>
+          <label htmlFor="priority" className="font-meium">Want to yo give your order priority?</label>
         </div>
 
         <div>
           {/* This is to pass data to the form in a dynamic way */}
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <Button disabled={isSubmitting}>
+          <Button disabled={isSubmitting} type="primary">
             {isSubmitting ? "Placing order" : "Order now"}
           </Button>
         </div>
