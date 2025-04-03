@@ -27,6 +27,8 @@ export async function createOrder(newOrder) {
         'Content-Type': 'application/json',
       },
     });
+    console.log(newOrder);
+    
 
     if (!res.ok) throw Error();
     const { data } = await res.json();
